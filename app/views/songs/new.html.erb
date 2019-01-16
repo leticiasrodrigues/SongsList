@@ -1,0 +1,11 @@
+<ul>
+  <% @song.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+
+<%= form_for @song do |f| %>
+	<%= f.label :name, 'Name' %>
+	<%= f.text_field :name %>
+  <%= f.submit 'Create' %>
+<% end %>

@@ -1,0 +1,9 @@
+<h1>Welcome to your Songs List</h1>
+<h2>Your songs</h2>
+<% @songs.each do |song| %>
+	<li><%= song.name %>
+  <%= link_to 'Edit', edit_song_path(song) %>
+  <%= link_to 'Delete', song_path(song), method: :delete,
+	data: { confirm: 'Delete this song?' }  %></li>
+<% end %>
+<%= link_to 'New song', new_song_path %>
