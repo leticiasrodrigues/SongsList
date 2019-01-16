@@ -7,3 +7,11 @@
 	data: { confirm: 'Delete this song?' }  %></li>
 <% end %>
 <%= link_to 'New song', new_song_path %>
+<h2>Your albums</h2>
+<% @albums.each do |album| %>
+  <li><%= album.name %>
+  <%= link_to 'Edit', edit_album_path(album) %>
+  <%= link_to 'Delete', album_path(album), method: :delete,
+  data: { confirm: 'Delete this album? All releated song will also be deleted.'}%></li>
+<% end %>
+<%= link_to 'New album', new_album_path %>
