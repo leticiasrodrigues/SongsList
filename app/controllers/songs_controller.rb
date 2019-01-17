@@ -2,10 +2,11 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    @albums = Album.all
   end
 
   def create
-    @song = Song.new(params.require(:song).permit(:name))
+    @song = Song.new(params.require(:song).permit(:name, :album_id))
     if @song.save
       redirect_to root_path
     else
@@ -15,11 +16,12 @@ class SongsController < ApplicationController
 
   def edit
     @song = Song.find(params[:id])
+    @albums = Album.all
   end
 
   def update
     @song = Song.find(params[:id])
-    if @song.update(params.require(:song).permit(:name))
+    if @song.update(params.require(:song).permit(:name, :album_id))
       redirect_to root_path
     else
       render :edit
