@@ -17,6 +17,11 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
   end
 
+  def show
+    @album = Album.find(params[:id])
+    @songs = Song.where(album: @album)
+  end
+
   def update
     @album = Album.find(params[:id])
     if @album.update(params.require(:album).permit(:name, :year))

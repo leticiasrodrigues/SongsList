@@ -11,3 +11,31 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
+.image-container {
+  padding: 0 50px;
+}
+
+.image-container-2 {
+  padding: 50px;
+}
+
+.container-x {
+  padding: 0 50px;
+}
+
+.album-list {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.card-custom {
+  width: 600px;
+}
+
+.album-header {
+	display: flex;
+  justify-content: flex-start;
+  padding: 50px 0;
+  align-items: center;
+}

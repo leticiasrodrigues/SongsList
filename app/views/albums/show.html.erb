@@ -1,0 +1,12 @@
+<div class="container">
+  <section class="album-header">
+    <%= image_tag 'cd.jpeg', class: "img-thumbnail" %>
+    <div class="text-left container-x">
+      <h1 class="font-weight-light"><%= @album.name %></h1>
+      <h3 class="font-weight-light"><%= @album.year %></h3>
+    </div>
+  </section>
+  <% @songs.each do |s|%>
+    <p class="font-weight-light"><%= s.name%></p>
+  <% end %>
+</div>
