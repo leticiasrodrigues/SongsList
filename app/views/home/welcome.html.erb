@@ -1,17 +1,34 @@
-<h1>Welcome to your Songs List</h1>
-<h2>Your songs</h2>
-<% @songs.each do |song| %>
-	<li><%= song.name %>
-  <%= link_to 'Edit', edit_song_path(song) %>
-  <%= link_to 'Delete', song_path(song), method: :delete,
-	data: { confirm: 'Delete this song?' }  %></li>
-<% end %>
-<%= link_to 'New song', new_song_path %>
-<h2>Your albums</h2>
-<% @albums.each do |album| %>
-  <li><%= album.name %>
-  <%= link_to 'Edit', edit_album_path(album) %>
-  <%= link_to 'Delete', album_path(album), method: :delete,
-  data: { confirm: 'Delete this album? All releated song will also be deleted.'}%></li>
-<% end %>
-<%= link_to 'New album', new_album_path %>
+<div class="container text-center">
+	<%= image_tag 'example.png', class: "img-fluid" %>
+	<h1>Welcome to your Songs List</h1>
+	<div class="row">
+		<div class="col-sm-6">
+			<dt>Your songs</dt>
+			<% @songs.each do |song| %>
+				<dd>
+					<%= song.name %>
+				  <%= link_to 'Edit', edit_song_path(song) %>
+				  <%= link_to 'Delete', song_path(song), method: :delete,
+					data: { confirm: 'Delete this song?' }  %>
+				</dd>
+			<% end %>
+		</div>
+		<div class="col-sm-6">
+			<dt>Your albums</dt>
+			<% @albums.each do |album| %>
+			  <dd><%= album.name %>
+			  <%= link_to 'Edit', edit_album_path(album) %>
+			  <%= link_to 'Delete', album_path(album), method: :delete,
+			  data: { confirm: 'Delete this album? All releated song will also be deleted.'}%></dd>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<p><%= link_to 'New song', new_song_path %></p>
+		</div>
+		<div class="col-sm-6 well">
+			<p><%= link_to 'New album', new_album_path %></p>
+		</div>
+	</div>
+</div>

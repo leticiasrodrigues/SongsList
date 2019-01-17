@@ -29,6 +29,7 @@ class SongsController < ApplicationController
   end
 
   def destroy
+    puts "vdqujd"
     song = Song.find(params[:id]) #nao precisa do @ pq nao tem a view
 		song.destroy
 		redirect_to root_path
