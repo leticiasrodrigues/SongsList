@@ -1,41 +1,55 @@
-<div class="container">
-	<div class="text-center">
-		<%= image_tag 'example.png', class: "img-fluid" %>
-		<h1>Welcome to your Songs List!!</h1>
-	</div>
-	<h2>Your songs</h2>
-	<% @songs.each do |song| %>
-		<dd>
-			<%= song.name %>
-		  <%= link_to 'Edit', edit_song_path(song) %>
-		  <%= link_to 'Delete', song_path(song), method: :delete,
-			data: { confirm: 'Delete this song?' }  %>
-		</dd>
-	<% end %>
-	<h2>Your albums</h2>
-	<div class="card-columns">
-			<% @albums.each do |album| %>
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title font-weight-light text-right"><%= album.name %></h5>
-						<h6 class="text-right small font-weight-light"><%= album.year %></h6>
-						<div class="text-center image-container">
-							<%= image_tag 'cd.jpg', class: "img-fluid"%>
-						</div>
-						<%= link_to 'Edit', edit_album_path(album) %>
-						<%= link_to 'Show', album_path(album) %>
-					  <%= link_to 'Delete', album_path(album), method: :delete,
-					  data: { confirm: 'Delete this album? All releated song will also be deleted.'}%>
+<div class="text-center">
+	<%= image_tag 'example.png', class: "img-fluid" %>
+	<h1>Welcome to your Songs List!!</h1>
+</div>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="songs-tab" data-toggle="tab" href="#song" role="tab" aria-controls="song">Songs</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="albums-tab" data-toggle="tab" href="#album" role="tab" aria-controls="album">Albums</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content tab-content-margin">
+  <div class="tab-pane active" id="song" role="tabpanel" aria-labelledby="songs-tab">
+		<h2>Your songs</h2>
+		<ul class="list-group list-group-flush">
+			<% @songs.each do |song| %>
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+					<%= song.name %>
+					<div>
+						<a class="btn btn-outline-primary" href="<%= edit_song_path(song) %>" role="button">Edit</a>
+						<a class="btn btn-outline-dark" data-confirm="Delete this song?" data-method="delete"
+						href="<%= song_path(song) %>" >Delete</a>
 					</div>
-				</div>
+				</li>
 			<% end %>
+		</ul>
+		<a class="btn btn-outline-primary button-margin" href="<%= new_song_path role="button" %>">New song</a>
 	</div>
-	<div class="row">
-		<div class="col-sm-6">
-			<p><%= link_to 'New song', new_song_path %></p>
+  <div class="tab-pane" id="album" role="tabpanel" aria-labelledby="abums-tab">
+		<h2>Your albums</h2>
+		<div class="card-columns">
+				<% @albums.each do |album| %>
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title font-weight-light text-right"><%= album.name %></h5>
+							<h6 class="text-right small font-weight-light"><%= album.year %></h6>
+							<div class="text-center image-container">
+								<%= image_tag 'cd.jpg', class: "img-fluid"%>
+							</div>
+							<%= link_to 'Edit', edit_album_path(album) %>
+							<%= link_to 'Show', album_path(album) %>
+						  <%= link_to 'Delete', album_path(album), method: :delete,
+						  data: { confirm: 'Delete this album? All releated song will also be deleted.'}%>
+						</div>
+					</div>
+				<% end %>
 		</div>
-		<div class="col-sm-6 well">
-			<p><%= link_to 'New album', new_album_path %></p>
-		</div>
+		<a class="btn btn-outline-primary button-margin" href="<%= new_album_path role="button" %>">New album</a>
 	</div>
 </div>

@@ -4,10 +4,11 @@
   <% end %>
 </ul>
 
+<h2>Edit your song:</h2>
 <%= form_for @song do |f| %>
-	<%= f.label :name, 'Name' %>
-	<%= f.text_field :name %>
-  <%= f.label :album_id, 'Album' %>
-  <%= f.collection_select(:album_id, @albums, :id, :name) %>
-	<%= f.submit 'Edit' %>
+	<p><%= f.label :name, 'Name' %>
+	<%= f.text_field :name %></p>
+  <p><%= f.label :album_id, 'Album' %>
+  <%= f.collection_select(:album_id, @albums, :id, :name) %></p>
+	<button type="submit" class="btn btn-outline-primary">Edit</button>
 <% end %>

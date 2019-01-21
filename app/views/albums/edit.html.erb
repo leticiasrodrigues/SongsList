@@ -4,10 +4,12 @@
   <% end %>
 </ul>
 
+<h2>Edit your album:</h2>
+
 <%= form_for @album do |f| %>
-	<%= f.label :name, 'Name' %>
-	<%= f.text_field :name %>
-  <%= f.label :year, 'Year' %>
-  <%= f.text_field :year %>
-  <%= f.submit 'Edit' %>
+	<p><%= f.label :name, 'Name' %>
+	<%= f.text_field :name %></p>
+  <p><%= f.label :year, 'Year' %>
+  <%= f.text_field :year %></p>
+  <button type="submit" class="btn btn-outline-primary">Edit</button>
 <% end %>

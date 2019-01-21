@@ -20,6 +20,15 @@
   padding: 50px;
 }
 
+.button-margin {
+  margin: 10px;
+}
+
+.tab-content-margin {
+  margin: 16px 0px;
+}
+
+
 .container-x {
   padding: 0 50px;
 }
