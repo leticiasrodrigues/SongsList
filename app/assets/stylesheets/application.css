@@ -28,6 +28,10 @@
   margin: 16px 0px;
 }
 
+.p-no-margin {
+  margin: 0px;
+}
+
 
 .container-x {
   padding: 0 50px;
